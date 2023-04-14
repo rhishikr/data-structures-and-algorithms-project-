@@ -1,4 +1,4 @@
-package mylib.datastructures.graphalgo;
+package mylib.graphalgo;
 public class Pair<K, V> {
     public K key;
     public V value;

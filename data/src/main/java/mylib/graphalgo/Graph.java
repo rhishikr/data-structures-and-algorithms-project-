@@ -1,4 +1,4 @@
-package mylib.datastructures.graphalgo;
+package mylib.graphalgo;
 import java.util.*;
 public class Graph {
     public int order; // number of vertices
