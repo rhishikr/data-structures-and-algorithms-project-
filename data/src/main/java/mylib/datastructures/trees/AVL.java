@@ -111,33 +111,43 @@ public class AVL extends BST {
         } else if (val > node.getData()) {
             node.setRight(delete(node.getRight(), val));
         } else {
-            if (node.getLeft() == null && node.getRight() == null) {
-                node = null;
-            } else if (node.getLeft() == null) {
-                node = node.getRight();
+            if (node.getLeft() == null) {
+                return node.getRight();
             } else if (node.getRight() == null) {
-                node = node.getLeft();
+                return node.getLeft();
             } else {
-                TNode temp = findMin(node.getRight());
-                node.setData(temp.getData());
-                node.setRight(delete(node.getRight(), temp.getData()));
-            }
-            if (node != null) {
-                node = balance(node.getParent());
+                TNode successor = findSuccessor(node);
+                node.setData(successor.getData());
+                node.setRight(delete(node.getRight(), successor.getData()));
             }
         }
-        return node;
-    }
-    private TNode findMin(TNode node) {
-        if (node == null) {
-            return null;
+        node.setHeight(1 + Math.max(getHeight(node.getLeft()), getHeight(node.getRight())));
+        int balanceFactor = getBalanceFactor(node);
+        if (balanceFactor > 1 && getBalanceFactor(node.getLeft()) >= 0) {
+            return rotateRight(node);
         }
-        while (node.getLeft() != null) {
-            node = node.getLeft();
+        if (balanceFactor > 1 && getBalanceFactor(node.getLeft()) < 0) {
+            node.setLeft(rotateLeft(node.getLeft()));
+            return rotateRight(node);
+        }
+        if (balanceFactor < -1 && getBalanceFactor(node.getRight()) <= 0) {
+            return rotateLeft(node);
+        }
+        if (balanceFactor < -1 && getBalanceFactor(node.getRight()) > 0) {
+            node.setRight(rotateRight(node.getRight()));
+            return rotateLeft(node);
         }
         return node;
     }
 
+    // Helper method to find the successor of a given node
+    private TNode findSuccessor(TNode node) {
+        TNode successor = node.getRight();
+        while (successor.getLeft() != null) {
+            successor = successor.getLeft();
+        }
+        return successor;
+    }
     public TNode search(int val) {
         // searches for the node with val as data and returns it or returns null if not found.
         return search(root, val);
@@ -174,9 +184,9 @@ public class AVL extends BST {
 
     private void printBF(TNode node) {
         if (node != null) {
-            printBF(node.getLeft());
+            printBF(node.left);
             System.out.print(getBalanceFactor(node) + " ");
-            printBF(node.getRight());
+            printBF(node.right);
         }
     }
 

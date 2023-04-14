@@ -140,27 +140,30 @@ public class BST {
             return;
         }
 
-        Queue<TNode> queue = new LinkedList<>();
-        queue.add(root);
-
-        while (!queue.isEmpty()) {
-            int levelSize = queue.size();
-
-            for (int i = 0; i < levelSize; i++) {
-                TNode node = queue.poll();
-                System.out.print(node.getData() + " ");
-
-                if (node.getLeft() != null) {
-                    queue.add(node.getLeft());
-                }
-
-                if (node.getRight() != null) {
-                    queue.add(node.getRight());
-                }
-            }
-
+        int height = getHeight(root);
+        for (int i = 1; i <= height; i++) {
+            printLevel(root, i);
             System.out.println();
         }
+    }
+    private int getHeight(TNode node) {
+        if (node == null) {
+            return 0;
+        } else {
+            int leftHeight = getHeight(node.getLeft());
+            int rightHeight = getHeight(node.getRight());
+            return Math.max(leftHeight, rightHeight) + 1;
+        }
+    }
 
-
-    }}
+    private void printLevel(TNode node, int level) {
+        if (node == null) {
+            return;
+        } else if (level == 1) {
+            System.out.print(node.getData() + " ");
+        } else {
+            printLevel(node.getLeft(), level - 1);
+            printLevel(node.getRight(), level - 1);
+        }
+    }
+}

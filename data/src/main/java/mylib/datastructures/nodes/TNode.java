@@ -1,19 +1,29 @@
 package mylib.datastructures.nodes;
 public class TNode {
     private int data;
-    private TNode left;
-    private TNode right;
+    public TNode left;
+    public TNode right;
     private TNode parent;
     private int balance;
+    public int height;
 
+    public TNode(int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+        this.height = 1;
+    }
+
+
+    // Default constructor
     public TNode() {
         this.data = 0;
         this.left = null;
         this.right = null;
         this.parent = null;
         this.balance = 0;
+        this.height = 1;
     }
-
     public TNode(int data, int balance, TNode P, TNode L, TNode R) {
         this.data = data;
         this.balance = balance;
@@ -73,4 +83,12 @@ public class TNode {
     public String toString() {
         return Integer.toString(data);
     }
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
 }

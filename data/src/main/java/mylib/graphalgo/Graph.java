@@ -2,9 +2,9 @@ package mylib.graphalgo;
 import java.util.*;
 public class Graph {
     public int order; // number of vertices
-    private int size; // number of edges
-    private int[][] adjacencyMatrix; // adjacency matrix representation
-    private List<List<Pair<Integer, Integer>>> adjacencyList; // adjacency list representation
+    public int size; // number of edges
+    public int[][] adjacencyMatrix; // adjacency matrix representation
+    public List<List<Pair<Integer, Integer>>> adjacencyList; // adjacency list representation
 
     // Default constructor for an empty graph
     public Graph() {
