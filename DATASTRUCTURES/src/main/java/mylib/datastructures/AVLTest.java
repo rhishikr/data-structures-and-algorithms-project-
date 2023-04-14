@@ -1,3 +1,6 @@
+package main.java.mylib.datastructures;
+import main.java.mylib.datastructures.trees.AVL;
+
 public class AVLTest {
     public static void main(String[] args) {
         AVL avl = new AVL();

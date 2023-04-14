@@ -1,3 +1,4 @@
+package main.java.mylib.datastructures;
 public class Pair<K, V> {
     public K key;
     public V value;

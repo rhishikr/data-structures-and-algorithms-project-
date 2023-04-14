@@ -1,4 +1,7 @@
+package main.java.mylib.datastructures.trees;
+
 import java.util.LinkedList;
+import main.java.mylib.datastructures.nodes.TNode;
 import java.util.Queue;
 
 

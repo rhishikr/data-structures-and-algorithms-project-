@@ -1,3 +1,4 @@
+package main.java.mylib.datastructures;
 public class GraphTest {
     public static void main(String[] args) {
         Graph graph = new Graph(0);
