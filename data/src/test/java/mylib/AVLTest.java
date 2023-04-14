@@ -6,6 +6,7 @@ public class AVLTest {
         AVL avl = new AVL();
         System.out.println("Inserting values...");
         avl.insert(5);
+
         avl.insert(3);
         avl.insert(2);
         avl.insert(4);
