@@ -1,7 +1,7 @@
-package main.java.mylib.datastructures;
+package mylib.datastructures.graphalgo;
 import java.util.*;
 public class Graph {
-    int order; // number of vertices
+    public int order; // number of vertices
     private int size; // number of edges
     private int[][] adjacencyMatrix; // adjacency matrix representation
     private List<List<Pair<Integer, Integer>>> adjacencyList; // adjacency list representation

@@ -1,6 +1,6 @@
-package main.java.mylib.datastructures;
-import main.java.mylib.datastructures.trees.BST;
-import main.java.mylib.datastructures.nodes.TNode;
+package mylib;
+import mylib.datastructures.trees.BST;
+import mylib.datastructures.nodes.TNode;
 //import org.junit.jupiter.api.*;
 
 public class BSTTest {

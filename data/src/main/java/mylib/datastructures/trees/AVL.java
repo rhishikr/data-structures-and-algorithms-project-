@@ -1,5 +1,5 @@
-package main.java.mylib.datastructures.trees;
-import main.java.mylib.datastructures.nodes.TNode;
+package mylib.datastructures.trees;
+import mylib.datastructures.nodes.TNode;
 public class AVL extends BST {
     private TNode root;
 

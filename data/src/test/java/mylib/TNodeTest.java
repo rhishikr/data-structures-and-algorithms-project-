@@ -1,5 +1,5 @@
-package main.java.mylib.datastructures;
-import main.java.mylib.datastructures.nodes.TNode;
+package mylib;
+import mylib.datastructures.nodes.TNode;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

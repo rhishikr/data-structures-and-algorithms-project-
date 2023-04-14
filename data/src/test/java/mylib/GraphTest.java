@@ -1,4 +1,5 @@
-package main.java.mylib.datastructures;
+package mylib;
+import mylib.datastructures.graphalgo.*;
 public class GraphTest {
     public static void main(String[] args) {
         Graph graph = new Graph(0);
