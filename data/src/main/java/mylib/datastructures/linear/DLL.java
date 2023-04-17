@@ -1,6 +1,5 @@
 package mylib.datastructures.linear;
 
-
 import mylib.datastructures.nodes.DNode;
 
 public class DLL {
@@ -16,6 +15,10 @@ public class DLL {
     public DLL(DNode node) {
         head = node;
         tail = node;
+    }
+
+    public DNode getHead() {
+        return head;
     }
 
     public boolean isEmpty() {
@@ -46,7 +49,7 @@ public class DLL {
         }
     }
 
-    public Integer removeFirst() {
+    public Integer deleteFirst() {
         if (isEmpty()) {
             return null;
         }
@@ -60,7 +63,7 @@ public class DLL {
         return removedValue;
     }
 
-    public Integer removeLast() {
+    public Integer deleteLast() {
         if (isEmpty()) {
             return null;
         }
@@ -85,5 +88,24 @@ public class DLL {
             current = current.getNext();
         }
         return sb.toString();
+    }
+
+    // DLL test
+    public static void main(String[] args) {
+
+        DLL dll = new DLL();
+        System.out.println("Empty DLL: " + dll);
+
+        dll.addFirst(5);
+        dll.addFirst(3);
+        dll.addLast(10);
+        dll.addLast(15);
+        System.out.println("DLL after adding nodes: " + dll);
+
+        Integer removedFirst = dll.deleteFirst();
+        Integer removedLast = dll.deleteLast();
+        System.out.println("DLL after deleting first and last nodes: " + dll);
+        System.out.println("Removed first node value: " + removedFirst);
+        System.out.println("Removed last node value: " + removedLast);
     }
 }
